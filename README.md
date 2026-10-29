@@ -55,7 +55,8 @@ _3A
 │   ├── util/       工具：JSON、时间格式化、密码加盐哈希
 │   └── web/        Servlet 与 Filter（含 EncodingFilter 统一 UTF-8）
 ├── src/main/resources/
-│   └── ai-config.properties    本地大模型密钥（已 gitignore，不要提交）
+│   ├── ai-config.properties.example   配置模板（随仓库提交）
+│   └── ai-config.properties           本地真实密钥（已 gitignore，不会提交）
 ├── src/main/webapp
 │   ├── index.jsp               首页
 │   ├── assets/                 CSS、JS、图片
@@ -166,7 +167,19 @@ D:\apache-tomcat-9.0.x\bin\shutdown.bat
 | 3 | `~/.3a-ai-config.properties` | 单机多项目共用 |
 | 4（最高） | 环境变量 / JVM 系统属性 | 容器化、CI |
 
-配置文件格式：
+仓库里只提供模板 `ai-config.properties.example`，真实的 `ai-config.properties` 不会被提交。从模板生成本地配置：
+
+```powershell
+# Windows
+copy src\main\resources\ai-config.properties.example src\main\resources\ai-config.properties
+```
+
+```bash
+# macOS / Linux
+cp src/main/resources/ai-config.properties.example src/main/resources/ai-config.properties
+```
+
+然后填入密钥。文件格式：
 
 ```properties
 ai.base.url=https://api.siliconflow.cn/v1

@@ -40,8 +40,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### 根目录下未参与构建的旧副本源码 ###
-/service/
+### 配置文件：只提交模板，真实密钥文件排除 ###
+!src/main/resources/ai-config.properties.example
 
 ### IDE 本地工作区状态 ###
 .idea/workspace.xml
